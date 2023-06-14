@@ -1,30 +1,25 @@
 import "./App.css";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import { Avatar, Chip } from "@mui/material";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import SmsOutlinedIcon from "@mui/icons-material/SmsOutlined";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { Chip } from "@mui/material";
 import PostHeader from "./components/PostHeader";
 import Comment from "./components/Comment";
-import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import ImageSlider from "./components/ImageSlider";
 import AvImg from "./assets/images/자산 9.png";
 import AvImg1 from "./assets/images/자산 10.png";
+import { chip, title1, title2, title3 } from "./Constants/constants";
+import Footer from "./components/Footer";
+import { Icons } from "./components/icon";
 function App() {
   return (
     <div className="App">
       <div className="header">
         <div>
-          <ArrowBackIosNewIcon style={{ color: "#313B49", fontSize: "16px" }} />
+          <Icons.ArrowBackIosNewIcon style={{ color: "#313B49", fontSize: "16px" }} />
         </div>
         <div>
           <h1>자유톡</h1>
         </div>
         <div>
-          <NotificationsNoneIcon
+          <Icons.NotificationsNoneIcon
             style={{ color: "#AFB9CA", fontSize: "19px" }}
           />
         </div>
@@ -37,7 +32,7 @@ function App() {
           title={"안녕 나 응애"}
           AvImg={AvImg}
           check={
-            <CheckCircleIcon
+            <Icons.CheckCircleIcon
               style={{
                 height: "14px",
                 width: "14px",
@@ -53,36 +48,25 @@ function App() {
           <div className="content-details">
             <div>
               <h6>
-                지난 월요일에 2023년 S/S 트렌드 알아보기 이벤트 참석했던 팝들아~
-                혹시 어떤 상품이 제일 괜찮았어?
+                {title1}
               </h6>
             </div>
             <div>
               <h6>
-                후기 올라오는거 보면 로우라이즈? 그게 제일 반응 좋고 그 테이블이
-                제일 재밌었다던데 맞아???
+                {title2}
               </h6>
             </div>
             <div>
               <h6>
-                올해 로우라이즈가 트렌드라길래 나도 도전해보고 싶은데 말라깽이가
-                아닌 사람들도 잘 어울릴지 너무너무 궁금해ㅜㅜ로우라이즈 테이블에
-                있었던 팝들 있으면 어땠는지 후기 좀 공유해주라~~!
+               {title3}
               </h6>
             </div>
           </div>
           <div className="lowerMiddle">
             <div className="chips">
-              <Chip className="chipStyle" label="#2023" variant="outlined" />
-              <Chip
-                className="chipStyle"
-                label="#TODAYISMONDAY"
-                variant="outlined"
-              />
-              <Chip className="chipStyle" label="#TOP" variant="outlined" />
-              <Chip className="chipStyle" label="#POPS!" variant="outlined" />
-              <Chip className="chipStyle" label="#WOW" variant="outlined" />
-              <Chip className="chipStyle" label="#ROW" variant="outlined" />
+                  {chip && chip.map((data,index)=>(
+                     <Chip key={index} className="chipStyle" label={data.name} variant="outlined" />
+                  ))}
             </div>
           </div>
           <div className="imageSlider">
@@ -90,10 +74,10 @@ function App() {
               <ImageSlider />
             </div>
             <Comment
-              heart={<FavoriteBorderIcon style={{ fontSize: "19px" }} />}
-              bookmark={<BookmarkBorderIcon style={{ fontSize: "19px" }} />}
-              horizon={<MoreHorizIcon style={{ fontSize: "19px" }} />}
-              sms={<SmsOutlinedIcon style={{ fontSize: "19px" }} />}
+              heart={<Icons.FavoriteBorderIcon style={{ fontSize: "19px" }} />}
+              bookmark={<Icons.BookmarkBorderIcon style={{ fontSize: "19px" }} />}
+              horizon={<Icons.MoreHorizIcon style={{ fontSize: "19px" }} />}
+              sms={<Icons.SmsOutlinedIcon style={{ fontSize: "19px" }} />}
               number={"5"}
               booknumber={"5"}
             />
@@ -104,10 +88,10 @@ function App() {
               title={"안녕 나 응애 "}
               AvImg={AvImg}
               button={
-                <MoreHorizIcon style={{ fontSize: "19px", color: "#AFB9CA" }} />
+                <Icons.MoreHorizIcon style={{ fontSize: "19px", color: "#AFB9CA" }} />
               }
               check={
-                <CheckCircleIcon
+                <Icons.CheckCircleIcon
                   style={{
                     height: "14px",
                     width: "14px",
@@ -124,8 +108,8 @@ function App() {
                 리뷰 올라온다고 하니 꼭 봐주세용~!
               </span>
               <Comment
-                heart={<FavoriteBorderIcon style={{ fontSize: "19px" }} />}
-                sms={<SmsOutlinedIcon style={{ fontSize: "19px" }} />}
+                heart={<Icons.FavoriteBorderIcon style={{ fontSize: "19px" }} />}
+                sms={<Icons.SmsOutlinedIcon style={{ fontSize: "19px" }} />}
                 booknumber={"5"}
               />
               <div style={{ paddingTop: "8px" }}>
@@ -134,7 +118,7 @@ function App() {
                   title={"ㅇㅅㅇ"}
                   AvImg={AvImg1}
                   button={
-                    <MoreHorizIcon
+                    <Icons.MoreHorizIcon
                       style={{ fontSize: "19px", color: "#AFB9CA" }}
                     />
                   }
@@ -145,26 +129,12 @@ function App() {
                   </span>
                 </div>
                 <Comment
-                  heart={<FavoriteBorderIcon style={{ fontSize: "19px",marginLeft:42 }} />}
+                  heart={<Icons.FavoriteBorderIcon style={{ fontSize: "19px",marginLeft:42 }} />}
                 />
               </div>
             </div>
           </div>
-          <div className="footer">
-            <div className="footerleft">
-              <div>
-                <ImageOutlinedIcon
-                  style={{ fontSize: "19px", color: "#919EB6" }}
-                />
-              </div>
-              <div>
-                <span style={{ color: "#AFB9CA" }}>댓글을 남겨주세요.</span>
-              </div>
-            </div>
-            <div className="footerright">
-              <span style={{ color: "#AFB9CA" }}>등록</span>
-            </div>
-          </div>
+          <Footer/>
         </div>
       </div>
     </div>
